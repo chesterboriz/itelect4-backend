@@ -69,3 +69,55 @@ export type NewItemBody = Pick<Item, "title" | "category" | "locationFound"> & {
   isClaimed?: boolean;
   estimatedValue?: number;
 };
+
+// ---------------------------------------------------------------------
+// COURSE & REFERENCE RESOURCE (GT4 Part 2):
+// ---------------------------------------------------------------------
+
+export interface Course {
+  id?: string;
+  code: string;
+  title: string;
+  units: number;
+  semester: string;
+  instructor?: string;
+  isOpen?: boolean;
+}
+
+// CourseDoc has to be a Pick, because Mongoose will not take an interface
+export type CourseDoc = Pick<
+  Course,
+  "code" | "title" | "units" | "semester"
+>;
+
+// Campus Lost & Found Reference Category
+export interface Category {
+  code: string;
+  name: string;
+  description?: string;
+}
+
+export type CategoryDoc = Pick<
+  Category,
+  "code" | "name" | "description"
+>;
+
+// ---------------------------------------------------------------------
+// SUBMISSION RESOURCE (FOR FULL SLIDE COMPATIBILITY):
+// ---------------------------------------------------------------------
+
+export interface Submission {
+  id: string;
+  studentId: string;
+  courseCode: string;
+  repoUrl: string;
+  submittedAt: string;
+}
+
+export type SubmissionDoc = Omit<Submission, "id" | "studentId" | "submittedAt"> & {
+  studentId: Types.ObjectId;
+  submittedAt: Date;
+};
+
+export type NewSubmissionBody = Pick<Submission, "courseCode" | "repoUrl">;
+
