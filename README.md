@@ -31,6 +31,7 @@ Express + TypeScript + MongoDB REST API for the Campus Lost & Found system.
 | GET | `/api/items/:id` | No | Get item detail |
 | GET | `/api/submissions` | Yes | List submissions |
 | POST | `/api/submissions` | Yes | Create submission |
+| POST | `/api/ai` | Yes | AI project review (Gemini) |
 
 ## 🚀 Run Locally
 
@@ -50,6 +51,7 @@ npm run dev
 ```env
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
+GEMINI_API_KEY=your_gemini_api_key
 PORT=4000
 CORS_ORIGIN=http://localhost:5173
 ```

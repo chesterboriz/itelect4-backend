@@ -12,6 +12,7 @@ import { courseRouter } from "./routes/courses";
 import { categoryRouter } from "./routes/categories";
 import { itemRouter } from "./routes/items";
 import { submissionRouter } from "./routes/submissions";
+import { aiRouter } from "./routes/ai";
 
 // This file builds the app and stops. It never opens a port and never
 // touches the database, so anything that wants an app -- server.ts, or
@@ -51,6 +52,7 @@ app.use("/api/courses", courseRouter);
 app.use("/api/categories", categoryRouter);
 app.use("/api/items", itemRouter);
 app.use("/api/submissions", submissionRouter);
+app.use("/api/ai", aiRouter);
 
 // 404 handler: Nothing above matched, so the URL does not exist.
 app.use((req: Request, res: Response) => {
