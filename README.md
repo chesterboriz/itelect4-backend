@@ -1,5 +1,7 @@
 # ITELECT4 Backend
 
+[![CI](https://github.com/chesterboriz/itelect4-backend/actions/workflows/ci.yml/badge.svg)](https://github.com/chesterboriz/itelect4-backend/actions/workflows/ci.yml)
+
 Express + TypeScript + MongoDB REST API for the Campus Lost & Found system.
 
 ## 🔗 Live Links
@@ -8,6 +10,19 @@ Express + TypeScript + MongoDB REST API for the Campus Lost & Found system.
 |---|---|
 | **Live Backend** | https://itelect4-backend-chi.vercel.app |
 | **Live Frontend** | https://itelect4-project-nu.vercel.app |
+
+## 🏗 Architecture
+
+```mermaid
+flowchart LR
+  fe["itelect4-project<br/>React + Vite on Vercel"]
+  be["itelect4-backend<br/>Express on Vercel"]
+  db[("MongoDB Atlas")]
+  ai["Gemini API"]
+  fe -- "fetch + Bearer token" --> be
+  be -- "Mongoose" --> db
+  be -- "GEMINI_API_KEY" --> ai
+```
 
 ## 🛠 Tech Stack
 
@@ -55,3 +70,8 @@ GEMINI_API_KEY=your_gemini_api_key
 PORT=4000
 CORS_ORIGIN=http://localhost:5173
 ```
+
+## 🤖 AI-Use Disclosure
+
+This project utilized AI assistance (Google Gemini / Antigravity) for automated test suite scaffolding, TypeScript type refinement, and CI workflow configuration in accordance with course guidelines.
+
