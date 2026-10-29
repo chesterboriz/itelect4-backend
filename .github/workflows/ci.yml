@@ -31,4 +31,4 @@ jobs:
       # JWT_SECRET from GitHub Repository Secrets.
       - run: npm test
         env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET || 'ci-only-test-secret' }}
